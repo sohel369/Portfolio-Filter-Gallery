@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Filter Gallery</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+<section>
+    <ul>
+        <li class="list active" data-filter="all">All</li>
+        <li class="list" data-filter="mobile">Mobile</li>
+        <li class="list" data-filter="camera">Camera</li>
+        <li class="list" data-filter="watch">Watch</li>
+        <li class="list" data-filter="headphone">Headphone</li>
+    </ul>
+    <div class="product">
+        <div class="itemBox all"><img src="./media/mobile.jpg" alt="Image"></div>
+        <div class="itemBox Camera"><img src="./media/camera 1.jpg" alt="Image"></div>
+        <div class="itemBox watch"><img src="./media/watch 1.jpg" alt="Image"></div>
+        <div class="itemBox headphone"><img src="./media/headphone 1.jpg" alt="Image"></div>
+        <div class="itemBox mobile"><img src="./media/mobile 2.jpg" alt="Image"></div>
+        <div class="itemBox camera"><img src="./media/camera 2.jpg" alt="Image"></div>
+        <div class="itemBox watch"><img src="./media/watch 2.jpg" alt="Image"></div>
+        <div class="itemBox headphone"><img src="./media/headphone 2.jpg" alt="Image"></div>
+        <div class="itemBox mobile"><img src="./media/mobile 3.jpg" alt="Image"></div>
+        <div class="itemBox camera"><img src="./media/camera 3.jpg" alt="Image"></div>
+        <div class="itemBox watch"><img src="./media/watch 3.jpg" alt="Image"></div>
+        <div class="itemBox headphone"><img src="./media/headphone 3.jpg" alt="Image"></div>
+        <div class="itemBox mobile"><img src="./media/mobile 4.jpg" alt="Image"></div>
+        <div class="itemBox camera"><img src="./media/camera 4.jpg" alt="Image"></div>
+        <div class="itemBox watch"><img src="./media/watch 4.jpg" alt="Image"></div>
+        <div class="itemBox headphone"><img src="./media/headphone 4.jpg" alt="Image"></div>
+    </div>
+</section>
+
+<script src="https://code.jquery.com/jquery-3.7.1.js"
+  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+  crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+        $('.list').click(function(){
+            const value=$(this).attr("data-filter");
+            if(value=='all'){
+                $(".itemBox").show("1000");
+            }
+            else{
+                $('.itemBox').not('.'+value).hide("1000");
+                $('.itemBox').filter('.'+value).show("1000")
+            }
+            $('.list').click(function(){
+                $(this).addClass("active").siblings().removeClass("active")
+            });
+        })
+    })
+</script>
+</body>
+
+</html>
